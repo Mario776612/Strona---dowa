@@ -1,11 +1,11 @@
 {
 	"Stratagem": [
-		{ "name": "Resuply", "code": "1134" },
-		{ "name": "Reinforce", "code": "13421" },
-		{ "name": "MG-43 Machine Gun", "code": "32314" },
-		{ "name": "M-105 Stalwart", "code": "323112" },
-		{ "name": "EAT-17 Expendable Anti-tank", "code": "33214" },
-		{ "name": "GR-8 Recoilless Rifle", "code": "32442" },
-		{ "name": "FLAM-40 Flamethrower", "code": "32131" }
+		{ "name": "Resuply", "code": "1134" , "color": "#9a8443"},
+		{ "name": "Reinforce", "code": "13421" , "color": "#9a8443"},
+		{ "name": "MG-43 Machine Gun", "code": "32314" , "color": "#5c8eab"},
+		{ "name": "M-105 Stalwart", "code": "323112" , "color": "#5c8eab"},
+		{ "name": "EAT-17 Expendable Anti-tank", "code": "33214", "color": "#5c8eab" },
+		{ "name": "GR-8 Recoilless Rifle", "code": "32442", "color": "#5c8eab" },
+		{ "name": "FLAM-40 Flamethrower", "code": "32131" , "color": "#5c8eab"}
 	]
 }

@@ -10,6 +10,12 @@ let flip = 0
 $(document).ready(function () {
 	$('#switch').prop('value', 'Switch : 🡹🡻🡸🡺')
 	$('#textbox').attr('value', arrow)
+	for (let i in json.Stratagem) {
+		$('#Cus-select').append($('<option>', {
+			value: json.Stratagem[i].code,
+			text: json.Stratagem[i].name
+		}));
+	}
 })
 $(document).keydown(function (e) {
 	if (e.which === mode[flip][0]) {
@@ -37,6 +43,7 @@ $('#clear').click(function () {
 	arrow = ''
 	list = ''
 	$('#textbox').attr('value', '')
+	$('#anwser').text(' ')
 })
 $('#switch').click(function () {
 	if (flip == 0) {
@@ -51,12 +58,13 @@ $('#check').click(function () {
 	let flipFlop = false
 	for (let i in json.Stratagem) {
 		if (json.Stratagem[i].code == list) {
-			console.log(json.Stratagem[i].name)
+			$('#anwser').text(json.Stratagem[i].name)
+			$('#anwser').css('color' , `${json.Stratagem[i].color}`);
 			flipFlop = true
 		}
 	}
 	if (flipFlop == false) {
-		console.log('No match')
+		$('#anwser').text('No match')
 	}
 	arrow = ''
 	list = ''
