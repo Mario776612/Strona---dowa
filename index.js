@@ -16,6 +16,7 @@ $(document).ready(function () {
 			text: json.Stratagem[i].name
 		}));
 	}
+	$('#CustomWindow').hide();
 })
 $(document).keydown(function (e) {
 	if (e.which === mode[flip][0]) {
@@ -72,4 +73,20 @@ $('#check').click(function () {
 })
 $('#challange').click(function () {
 	alert(json.Stratagem[Math.floor(Math.random() * json.Stratagem.length)].name)
+})
+let flipFlop = true
+$('#Custom').click(function () {
+	if(flipFlop == true){
+		$('#CustomWindow').show();
+		flipFlop = false;
+	}else{
+		$('#CustomWindow').hide();
+		flipFlop = true;
+	}
+})
+let CustomStratagemList = []
+$('#Cus-apply').click(function(){
+	let add = $('#Cus-select').val()
+	CustomStratagemList.push(add)
+	$('#textbox2').attr('value', CustomStratagemList)
 })

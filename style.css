@@ -1,5 +1,5 @@
 .button-1,
-#textbox {
+#textbox , #textbox2 {
 	background-color: #272023;
 	border-radius: 8px;
 	border-style: none;
@@ -24,6 +24,7 @@
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: manipulation;
+	margin: 3px;
 }
 
 .button-1:hover,
@@ -32,6 +33,7 @@
 	color: #272023;
 }
 #CustomWindow{
-	height: 100px;
+	height: 140px;
 	width: 100px;
+	
 }
