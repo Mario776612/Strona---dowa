@@ -32,8 +32,24 @@
 	background-color: #eded2e;
 	color: #272023;
 }
-#CustomWindow{
+#CustomWindow , #ChallangeWindow{
 	height: 140px;
 	width: 100px;
 	
+}
+#Cus-select {
+    width: 80%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #272023;
+    color: white;
+  }
+#Windows-Flex {
+	display: flex;
+	justify-content: left;
 }

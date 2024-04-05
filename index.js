@@ -7,6 +7,15 @@ let mode = [
 	[65, 68, 87, 83],
 ]
 let flip = 0
+
+let numbersToArrows = (a) => {
+	let arrows = a.replace(/2/g, '🡸 ')
+				 .replace(/4/g, '🡺 ')
+				 .replace(/1/g, '🡹 ')
+				 .replace(/3/g, '🡻 ');
+	return arrows;
+  }
+
 $(document).ready(function () {
 	$('#switch').prop('value', 'Switch : 🡹🡻🡸🡺')
 	$('#textbox').attr('value', arrow)
@@ -17,6 +26,7 @@ $(document).ready(function () {
 		}));
 	}
 	$('#CustomWindow').hide();
+	$('#ChallangeWindow').hide();
 })
 $(document).keydown(function (e) {
 	if (e.which === mode[flip][0]) {
@@ -40,12 +50,6 @@ $(document).keydown(function (e) {
 		$('#textbox').attr('value', arrow)
 	}
 })
-$('#clear').click(function () {
-	arrow = ''
-	list = ''
-	$('#textbox').attr('value', '')
-	$('#anwser').text(' ')
-})
 $('#switch').click(function () {
 	if (flip == 0) {
 		flip = 1
@@ -55,38 +59,73 @@ $('#switch').click(function () {
 		$('#switch').prop('value', 'Switch :🡹🡻🡸🡺')
 	}
 })
-$('#check').click(function () {
-	let flipFlop = false
-	for (let i in json.Stratagem) {
-		if (json.Stratagem[i].code == list) {
-			$('#anwser').text(json.Stratagem[i].name)
-			$('#anwser').css('color' , `${json.Stratagem[i].color}`);
-			flipFlop = true
-		}
+let flipFlop1 = true
+$('#challange').click(function () {
+	if(flipFlop1 == true){
+		$('#ChallangeWindow').show();
+		$('#anwser').text(' ')
+		flipFlop1 = false;
+	}else{
+		$('#ChallangeWindow').hide();
+		flipFlop1 = true;
 	}
-	if (flipFlop == false) {
-		$('#anwser').text('No match')
+	//alert(json.Stratagem[Math.floor(Math.random() * json.Stratagem.length)].name)
+})
+let flipFlop2 = true
+$('#Custom').click(function () {
+	if(flipFlop2 == true){
+		$('#CustomWindow').show();
+		$('#anwser').text(' ')
+		flipFlop2 = false;
+	}else{
+		$('#CustomWindow').hide();
+		flipFlop2 = true;
 	}
+})
+
+let clear = () => {
 	arrow = ''
 	list = ''
 	$('#textbox').attr('value', '')
+}
+
+$('#clear').click(function () {
+	clear();
+	$('#anwser').text(' ')
 })
-$('#challange').click(function () {
-	alert(json.Stratagem[Math.floor(Math.random() * json.Stratagem.length)].name)
-})
-let flipFlop = true
-$('#Custom').click(function () {
-	if(flipFlop == true){
-		$('#CustomWindow').show();
-		flipFlop = false;
-	}else{
-		$('#CustomWindow').hide();
-		flipFlop = true;
-	}
-})
+
 let CustomStratagemList = []
+let CustomStratagemListArrow = []
 $('#Cus-apply').click(function(){
 	let add = $('#Cus-select').val()
 	CustomStratagemList.push(add)
-	$('#textbox2').attr('value', CustomStratagemList)
+	CustomStratagemListArrow.push(numbersToArrows(add))
+	$('#textbox2').attr('value', CustomStratagemListArrow)
+
+})
+$('#check').click(function () {
+	let flipFlop = false
+		if(flipFlop2 == true){
+			for (let i in json.Stratagem) {
+				if (json.Stratagem[i].code == list) {
+					$('#anwser').text(json.Stratagem[i].name)
+					$('#anwser').css('color' , `${json.Stratagem[i].color}`);
+					flipFlop = true;
+			}
+		}
+	}else if(flipFlop2 == false){
+		for(let j in CustomStratagemList){
+			if (list == CustomStratagemList[j]) {
+				CustomStratagemList.splice(j , 1)
+				CustomStratagemListArrow.splice(j , 1)
+				$('#textbox2').attr('value', CustomStratagemListArrow)
+				flipFlop = true;
+			}
+	}
+}
+	if (flipFlop == false) {
+		$('#anwser').css('color' , `black`);
+		$('#anwser').text('No match')
+	}
+	clear()
 })
