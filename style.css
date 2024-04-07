@@ -37,7 +37,7 @@
 	width: 100px;
 	
 }
-#Cus-select {
+#Cus-select , #Codes-select {
     width: 80%;
     min-width: 15ch;
     max-width: 30ch;

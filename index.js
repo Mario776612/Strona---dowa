@@ -20,7 +20,7 @@ $(document).ready(function () {
 	$('#switch').prop('value', 'Switch : 🡹🡻🡸🡺')
 	$('#textbox').attr('value', arrow)
 	for (let i in json.Stratagem) {
-		$('#Cus-select').append($('<option>', {
+		$('#Cus-select ,  #Codes-select').append($('<option>', {
 			value: json.Stratagem[i].code,
 			text: json.Stratagem[i].name
 		}));
@@ -128,4 +128,9 @@ $('#check').click(function () {
 		$('#anwser').text('No match')
 	}
 	clear()
+})
+
+$('#Codes-apply').click(function () {
+	let value = $('#Codes-select').val()
+	alert(numbersToArrows(value))
 })
