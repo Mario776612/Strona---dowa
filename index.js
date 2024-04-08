@@ -27,6 +27,7 @@ $(document).ready(function () {
 	}
 	$('#CustomWindow').hide();
 	$('#ChallangeWindow').hide();
+	$('#StratagemsCodes').hide();
 })
 $(document).keydown(function (e) {
 	if (e.which === mode[flip][0]) {
@@ -59,28 +60,29 @@ $('#switch').click(function () {
 		$('#switch').prop('value', 'Switch :🡹🡻🡸🡺')
 	}
 })
+let toggleWindow = (windowSelector, flipF) => {
+    if (flipF) {
+        $(windowSelector).show();
+        $('#anwser').text('');
+        flipF = false;
+    } else {
+        $(windowSelector).hide();
+        flipF = true;
+    }
+    return flipF;
+}
+
+let flipFlop2 = true;
+$('#Custom').click(function() {
+    flipFlop2 = toggleWindow('#CustomWindow', flipFlop2);
+});
 let flipFlop1 = true
 $('#challange').click(function () {
-	if(flipFlop1 == true){
-		$('#ChallangeWindow').show();
-		$('#anwser').text(' ')
-		flipFlop1 = false;
-	}else{
-		$('#ChallangeWindow').hide();
-		flipFlop1 = true;
-	}
-	//alert(json.Stratagem[Math.floor(Math.random() * json.Stratagem.length)].name)
-})
-let flipFlop2 = true
-$('#Custom').click(function () {
-	if(flipFlop2 == true){
-		$('#CustomWindow').show();
-		$('#anwser').text(' ')
-		flipFlop2 = false;
-	}else{
-		$('#CustomWindow').hide();
-		flipFlop2 = true;
-	}
+	flipFlop1 = toggleWindow('#ChallangeWindow' , flipFlop1)
+});
+let flipFlop3 = true
+$('#sCodees').click(function() {
+	flipFlop3 = toggleWindow('#StratagemsCodes' , flipFlop3)
 })
 
 let clear = () => {
