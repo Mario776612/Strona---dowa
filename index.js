@@ -81,9 +81,9 @@ $('#challange').click(function () {
 	flipFlop1 = toggleWindow('#ChallangeWindow' , flipFlop1)
 });
 let flipFlop3 = true
-$('#sCodees').click(function() {
+$('#sCodes').click(function() {
 	flipFlop3 = toggleWindow('#StratagemsCodes' , flipFlop3)
-})
+});
 
 let clear = () => {
 	arrow = ''
